@@ -20,11 +20,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
   <bean id="mailSender" class="org.jtalks.jcommune.service.nontransactional.MailSender">
-    <property name="host" value="${SMTP_HOST:smtp.mail.ru}"/>
+    <property name="host" value="${SMTP_HOST:smtp.gmail.com}"/>
     <property name="port" value="${SMTP_PORT:#{sslEnabled? 465 : 25}}"/>
     <!--the following property should match "from" property in MailSender bean-->
-    <property name="username" value="${MAIL_USERNAME:jtalks@inbox.ru}"/>
-    <property name="password" value="${MAIL_PASSWORD:javatalks}"/>
+    <property name="username" value="${MAIL_USERNAME:example.smtp.jtalk@gmail.com}"/>
+    <property name="password" value="${MAIL_PASSWORD:Jtalk111}"/>
     <property name="defaultEncoding" value="UTF-8"/>
     <property name="javaMailProperties"  value="#{sslEnabled? sslMailProps : mailProps}"/>
   </bean>

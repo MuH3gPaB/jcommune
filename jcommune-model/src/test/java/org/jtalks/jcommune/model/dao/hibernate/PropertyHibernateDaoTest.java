@@ -30,7 +30,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 
 /**
- * 
+ *
  * @author Anuar Nurmakanov
  *
  */
@@ -45,19 +45,19 @@ public class PropertyHibernateDaoTest  extends AbstractTransactionalTestNGSpring
     @Autowired
     private PropertyDao propertyDao;
     private Session session;
-    
+
     @BeforeMethod
     public void setUp() {
         session = sessionFactory.getCurrentSession();
     }
-    
+
     /*===== Common methods =====*/
-    
+
     @Test(expectedExceptions = {UnsupportedOperationException.class})
     public void testUpdate() {
         propertyDao.saveOrUpdate(property);
     }
-    
+
     @Test
     public void testGet() {
         session.save(property);
@@ -67,14 +67,14 @@ public class PropertyHibernateDaoTest  extends AbstractTransactionalTestNGSpring
         assertNotNull(result, "Property not found");
         assertEquals(result.getId(), property.getId(), "Property not found");
     }
-    
+
     /*===== Specific methods =====*/
     @Test
     public void testGetByName() {
         session.save(property);
 
         Property result = propertyDao.getByName(PROPERTY_NAME);
-        
+
         assertNotNull(result, "Property is not found by name.");
         assertEquals(result.getId(), property.getId(), "Property not found");
     }
