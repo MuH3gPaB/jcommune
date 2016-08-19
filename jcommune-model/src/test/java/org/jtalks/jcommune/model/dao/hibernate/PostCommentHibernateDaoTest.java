@@ -45,7 +45,7 @@ public class PostCommentHibernateDaoTest extends AbstractTransactionalTestNGSpri
         session = sessionFactory.getCurrentSession();
         PersistedObjectsFactory.setSession(session);
     }
-    
+
     /*===== Common methods =====*/
 
     @Test

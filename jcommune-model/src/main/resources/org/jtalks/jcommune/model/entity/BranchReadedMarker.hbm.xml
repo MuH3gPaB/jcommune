@@ -28,7 +28,8 @@
     <many-to-one name="user" column="USER_ID" class="org.jtalks.jcommune.model.entity.JCUser"/>
     <many-to-one name="branch" column="BRANCH_ID" class="Branch"/>
     <property name="markTime" column="MARKED_AS_READ_TIME"
-              type="org.joda.time.contrib.hibernate.PersistentDateTime" not-null="true"/>
+              type="org.joda.time.contrib.hibernate.PersistentDateTime"
+              not-null="true"/>
   </class>
 
   <query name="getMarkByUserAndBranch">
