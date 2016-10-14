@@ -51,7 +51,7 @@ public class ComponentHibernateDaoTest extends AbstractTransactionalTestNGSpring
         session = sessionFactory.getCurrentSession();
         PersistedObjectsFactory.setSession(session);
     }
-    
+
     /*===== Common methods =====*/
 
     @Test
@@ -110,7 +110,7 @@ public class ComponentHibernateDaoTest extends AbstractTransactionalTestNGSpring
 
         assertEquals(componentDao.get(component.getId()).getProperties().size(), 1);
     }
-    
+
     /*===== End of common methods =====*/
 
     @Test

@@ -45,7 +45,7 @@ public class ValidatorHibernateDaoTest extends AbstractTransactionalTestNGSpring
     public void testResultSetisEmptyNoField() {
         assertTrue(dao.isResultSetEmpty(JCUser.class, "username", "lol", false));
     }
-    
+
     @Test
     public void testResultSetIsEmptyDifferentCases() {
         String realname = ObjectsFactory.getDefaultUser().getUsername().toUpperCase();
@@ -61,7 +61,7 @@ public class ValidatorHibernateDaoTest extends AbstractTransactionalTestNGSpring
 
         assertFalse(dao.isResultSetEmpty(JCUser.class, "username", realname, false));
     }
-    
+
     @Test
     public void testResultSetIsNotEmptyIgnoreCase() {
         String realname = ObjectsFactory.getDefaultUser().getUsername().toUpperCase();
@@ -69,12 +69,12 @@ public class ValidatorHibernateDaoTest extends AbstractTransactionalTestNGSpring
 
         assertFalse(dao.isResultSetEmpty(JCUser.class, "username", realname, true));
     }
-    
+
     @Test
     public void testIsExistsNoField() {
         assertFalse(dao.isExists(JCUser.class, "username", "lol", false));
     }
-    
+
     @Test
     public void testIsExistsDifferentCases() {
         String realname = ObjectsFactory.getDefaultUser().getUsername().toUpperCase();
@@ -90,7 +90,7 @@ public class ValidatorHibernateDaoTest extends AbstractTransactionalTestNGSpring
 
         assertTrue(dao.isExists(JCUser.class, "username", realname, false));
     }
-    
+
     @Test
     public void testIsExistsExistIgnoreCase() {
         String realname = ObjectsFactory.getDefaultUser().getUsername().toUpperCase();
@@ -98,7 +98,7 @@ public class ValidatorHibernateDaoTest extends AbstractTransactionalTestNGSpring
 
         assertTrue(dao.isExists(JCUser.class, "username", realname, true));
     }
-    
+
     @Test
     public void testIsExistsSameIgnoreCaseValuesNotExists() {
         sessionFactory.getCurrentSession().saveOrUpdate(ObjectsFactory.getUser("Username", "Username@mail.com"));
@@ -106,11 +106,11 @@ public class ValidatorHibernateDaoTest extends AbstractTransactionalTestNGSpring
 
         assertFalse(dao.isExists(JCUser.class, "username", "USERNAME", true));
     }
-    
+
     @Test
     public void testIsExistsSameIgnoreCaseValuesExists() {
         JCUser expectedUser = ObjectsFactory.getUser("Username", "Username@mail.com");
-        String expectedUsername = expectedUser.getUsername(); 
+        String expectedUsername = expectedUser.getUsername();
         sessionFactory.getCurrentSession().saveOrUpdate(expectedUser);
         sessionFactory.getCurrentSession().saveOrUpdate(ObjectsFactory.getUser("uSername", "uSername@mail.com"));
 
